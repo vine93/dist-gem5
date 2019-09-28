@@ -1,0 +1,85 @@
+{
+    "name": null, 
+    "sim_quantum": 0, 
+    "system": {
+        "name": "system", 
+        "dump": null, 
+        "fabric_speed": "800.000000", 
+        "time_to_live": 10000000000, 
+        "output_buffer_size": 1048576, 
+        "portlink": [
+            {
+                "name": "portlink0", 
+                "dump": null, 
+                "dist_rank": 0, 
+                "sync_repeat": 0, 
+                "server_name": "127.0.0.1", 
+                "is_switch": true, 
+                "num_nodes": 2, 
+                "delay": 128000000, 
+                "dist_sync_on_pseudo_op": false, 
+                "delay_var": 0, 
+                "eventq_index": 0, 
+                "dist_size": 2, 
+                "server_port": 2200, 
+                "cxx_class": "DistEtherLink", 
+                "path": "system.portlink0", 
+                "type": "DistEtherLink", 
+                "sync_start": 1000000000000, 
+                "speed": "800.000000", 
+                "int0": {
+                    "peer": "system.interface[0]", 
+                    "is_source": "False", 
+                    "role": "ETHERNET"
+                }
+            }, 
+            {
+                "name": "portlink1", 
+                "dump": null, 
+                "dist_rank": 0, 
+                "sync_repeat": 0, 
+                "server_name": "127.0.0.1", 
+                "is_switch": true, 
+                "num_nodes": 2, 
+                "delay": 128000000, 
+                "dist_sync_on_pseudo_op": false, 
+                "delay_var": 0, 
+                "eventq_index": 0, 
+                "dist_size": 2, 
+                "server_port": 2200, 
+                "cxx_class": "DistEtherLink", 
+                "path": "system.portlink1", 
+                "type": "DistEtherLink", 
+                "sync_start": 1000000000000, 
+                "speed": "800.000000", 
+                "int0": {
+                    "peer": "system.interface[1]", 
+                    "is_source": "False", 
+                    "role": "ETHERNET"
+                }
+            }
+        ], 
+        "delay": 0, 
+        "delay_var": 0, 
+        "eventq_index": 0, 
+        "cxx_class": "EtherSwitch", 
+        "interface": {
+            "peer": [
+                "system.portlink0.int0", 
+                "system.portlink1.int0"
+            ], 
+            "is_source": "False", 
+            "role": "ETHERNET"
+        }, 
+        "path": "system", 
+        "type": "EtherSwitch"
+    }, 
+    "time_sync_period": 100000000000, 
+    "eventq_index": 0, 
+    "time_sync_spin_threshold": 100000000, 
+    "cxx_class": "Root", 
+    "path": "root", 
+    "time_sync_enable": false, 
+    "type": "Root", 
+    "full_system": true
+}

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+source /root/.bashrc
+echo "memcached.rcS is running"
+
+# Retrieve dist-gem5 rank and size parameters using magic keys
+MY_RANK=$(/sbin/m5 initparam dist-rank)
+[ $? = 0 ] || { echo "m5 initparam failed"; exit -1; }
+
+THINK=1
+CONCUR=4
+
+if [ "$MY_RANK" == "0" ]
+then
+    echo "sleep here"
+    sleep 1000
+else
+    cd /memslab/src
+
+    if [ "$MY_RANK" == "1" ]
+    then
+     ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+    elif [ "$MY_RANK" == "2" ]
+    then
+     ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+    elif [ "$MY_RANK" == "3" ]
+    then
+     ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+    fi
+fi
+

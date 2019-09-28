@@ -1,0 +1,456 @@
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 3.16.0-rc6 (tony@vamp) (gcc version 4.8.2 20140110 (prerelease) [ibm/gcc-4_8-branch merged from gcc-4_8-branch, revision 205847] (Ubuntu/Linaro 4.8.2-13ubuntu1) ) #1 SMP PREEMPT Wed Oct 1 14:39:23 EDT 2014
+[    0.000000] CPU: AArch64 Processor [410fc0f0] revision 0
+[    0.000000] Memory limited to 512MB
+[    0.000000] cma: CMA: reserved 16 MiB at 9f000000
+[    0.000000] On node 0 totalpages: 131072
+[    0.000000]   DMA zone: 1792 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 131072 pages, LIFO batch:31
+[    0.000000] PERCPU: Embedded 11 pages/cpu @ffffffc01efc3000 s12800 r8192 d24064 u45056
+[    0.000000] pcpu-alloc: s12800 r8192 d24064 u45056 alloc=11*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 129280
+[    0.000000] Kernel command line: earlyprintk=pl011,0x1c090000 console=ttyAMA0 lpj=19988480 norandmaps rw loglevel=8 mem=512MB root=/dev/sda1
+[    0.000000] PID hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 65536 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 6, 262144 bytes)
+[    0.000000] Memory: 485524K/524288K available (4569K kernel code, 308K rwdata, 1640K rodata, 208K init, 187K bss, 38764K reserved)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vmalloc : 0xffffff8000000000 - 0xffffffbbffff0000   (245759 MB)
+[    0.000000]     vmemmap : 0xffffffbc01c00000 - 0xffffffbc02300000   (     7 MB)
+[    0.000000]     modules : 0xffffffbffc000000 - 0xffffffc000000000   (    64 MB)
+[    0.000000]     memory  : 0xffffffc000000000 - 0xffffffc020000000   (   512 MB)
+[    0.000000]       .init : 0xffffffc000692000 - 0xffffffc0006c6200   (   209 kB)
+[    0.000000]       .text : 0xffffffc000080000 - 0xffffffc0006914e4   (  6214 kB)
+[    0.000000]       .data : 0xffffffc0006c7000 - 0xffffffc0007141e0   (   309 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS:64 nr_irqs:64 0
+[    0.000000] Architected cp15 timer(s) running at 100.00MHz (phys).
+[    0.000001] sched_clock: 56 bits at 100MHz, resolution 10ns, wraps every 2748779069440ns
+[    0.000041] Console: colour dummy device 80x25
+[    0.000044] Calibrating delay loop (skipped) preset value.. 3997.69 BogoMIPS (lpj=19988480)
+[    0.000046] pid_max: default: 32768 minimum: 301
+[    0.000065] Mount-cache hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.000067] Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.000280] hw perfevents: no hardware support available
+[    0.060077] CPU1: Booted secondary processor
+[    0.080078] CPU2: Booted secondary processor
+[    0.100085] CPU3: Booted secondary processor
+[    0.100101] Brought up 4 CPUs
+[    0.100106] SMP: Total of 4 processors activated.
+[    0.100242] devtmpfs: initialized
+[    0.101260] atomic64_test: passed
+[    0.101378] regulator-dummy: no parameters
+[    0.102277] NET: Registered protocol family 16
+[    0.102645] vdso: 2 pages (1 code, 1 data) at base ffffffc0006cd000
+[    0.102654] hw-breakpoint: found 2 breakpoint and 2 watchpoint registers.
+[    0.103715] software IO TLB [mem 0x9d400000-0x9d800000] (4MB) mapped at [ffffffc01d400000-ffffffc01d7fffff]
+[    0.103719] Serial: AMBA PL011 UART driver
+[    0.104183] of_amba_device_create(): amba_device_add() failed (-19) for /smb/motherboard/iofpga@3,00000000/sysctl@020000
+[    0.104257] 1c090000.uart: ttyAMA0 at MMIO 0x1c090000 (irq = 37, base_baud = 0) is a PL011 rev3
+[    0.104879] console [ttyAMA0] enabled
+[    0.104983] of_amba_device_create(): amba_device_add() failed (-19) for /smb/motherboard/iofpga@3,00000000/uart@0a0000
+[    0.105033] of_amba_device_create(): amba_device_add() failed (-19) for /smb/motherboard/iofpga@3,00000000/uart@0b0000
+[    0.105083] of_amba_device_create(): amba_device_add() failed (-19) for /smb/motherboard/iofpga@3,00000000/uart@0c0000
+[    0.105129] of_amba_device_create(): amba_device_add() failed (-19) for /smb/motherboard/iofpga@3,00000000/wdt@0f0000
+[    0.130290] 3V3: 3300 mV 
+[    0.130361] vgaarb: loaded
+[    0.130507] SCSI subsystem initialized
+[    0.130612] libata version 3.00 loaded.
+[    0.130764] usbcore: registered new interface driver usbfs
+[    0.130800] usbcore: registered new interface driver hub
+[    0.130845] usbcore: registered new device driver usb
+[    0.130913] pps_core: LinuxPPS API ver. 1 registered
+[    0.130926] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.130957] PTP clock support registered
+[    0.131248] Switched to clocksource arch_sys_counter
+[    0.133762] NET: Registered protocol family 2
+[    0.133938] TCP established hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.133983] TCP bind hash table entries: 4096 (order: 4, 65536 bytes)
+[    0.134044] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.134078] TCP: reno registered
+[    0.134086] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.134105] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.134168] NET: Registered protocol family 1
+[    0.134240] RPC: Registered named UNIX socket transport module.
+[    0.134252] RPC: Registered udp transport module.
+[    0.134261] RPC: Registered tcp transport module.
+[    0.134271] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.134286] PCI: CLS 0 bytes, default 64
+[    0.134685] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.134897] HugeTLB registered 2 MB page size, pre-allocated 0 pages
+[    0.138779] fuse init (API version 7.23)
+[    0.138975] msgmni has been set to 980
+[    0.139163] io scheduler noop registered
+[    0.139273] io scheduler cfq registered (default)
+[    0.140192] pci-host-generic 30000000.pci: PCI host bridge to bus 0000:00
+[    0.140211] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    0.140224] pci_bus 0000:00: root bus resource [mem 0x40000000-0x4fffffff]
+[    0.140239] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.140251] pci_bus 0000:00: scanning bus
+[    0.140265] pci 0000:00:00.0: [8086:1075] type 00 class 0x020000
+[    0.140280] pci 0000:00:00.0: reg 0x10: [mem 0x00000000-0x0001ffff]
+[    0.140299] pci 0000:00:00.0: reg 0x30: [mem 0x00000000-0x000007ff pref]
+[    0.140362] pci 0000:00:01.0: [8086:7111] type 00 class 0x010185
+[    0.140379] pci 0000:00:01.0: reg 0x10: [io  0x0000-0x0007]
+[    0.140392] pci 0000:00:01.0: reg 0x14: [io  0x0000-0x0003]
+[    0.140405] pci 0000:00:01.0: reg 0x18: [io  0x0000-0x0007]
+[    0.140418] pci 0000:00:01.0: reg 0x1c: [io  0x0000-0x0003]
+[    0.140431] pci 0000:00:01.0: reg 0x20: [io  0x0000-0x000f]
+[    0.140446] pci 0000:00:01.0: reg 0x30: [mem 0x00000000-0x000007ff pref]
+[    0.140513] pci_bus 0000:00: fixups for bus
+[    0.140523] pci_bus 0000:00: bus scan returning with max=00
+[    0.140538] pci 0000:00:00.0: calling quirk_e100_interrupt+0x0/0x1cc
+[    0.140564] pci 0000:00:00.0: fixup irq: got 33
+[    0.140574] pci 0000:00:00.0: assigning IRQ 33
+[    0.140588] pci 0000:00:01.0: fixup irq: got 34
+[    0.140598] pci 0000:00:01.0: assigning IRQ 34
+[    0.140612] pci 0000:00:00.0: BAR 0: assigned [mem 0x40000000-0x4001ffff]
+[    0.140628] pci 0000:00:00.0: BAR 6: assigned [mem 0x40020000-0x400207ff pref]
+[    0.140643] pci 0000:00:01.0: BAR 6: assigned [mem 0x40020800-0x40020fff pref]
+[    0.140658] pci 0000:00:01.0: BAR 4: assigned [io  0x1000-0x100f]
+[    0.140672] pci 0000:00:01.0: BAR 0: assigned [io  0x1010-0x1017]
+[    0.140686] pci 0000:00:01.0: BAR 2: assigned [io  0x1018-0x101f]
+[    0.140700] pci 0000:00:01.0: BAR 1: assigned [io  0x1020-0x1023]
+[    0.140713] pci 0000:00:01.0: BAR 3: assigned [io  0x1024-0x1027]
+[    0.141866] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    0.142492] ata_piix 0000:00:01.0: version 2.13
+[    0.142505] ata_piix 0000:00:01.0: enabling device (0000 -> 0001)
+[    0.142540] ata_piix 0000:00:01.0: enabling bus mastering
+[    0.143140] scsi0 : ata_piix
+[    0.143294] scsi1 : ata_piix
+[    0.143364] ata1: PATA max UDMA/33 cmd 0x1010 ctl 0x1020 bmdma 0x1000 irq 34
+[    0.143381] ata2: PATA max UDMA/33 cmd 0x1018 ctl 0x1024 bmdma 0x1008 irq 34
+[    0.143598] e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
+[    0.143612] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    0.143632] e1000 0000:00:00.0: enabling device (0000 -> 0002)
+[    0.143646] e1000 0000:00:00.0: enabling bus mastering
+[    0.301312] ata1.00: ATA-7: M5 IDE Disk, , max UDMA/66
+[    0.301325] ata1.00: 4194288 sectors, multi 0: LBA 
+[    0.301359] ata1.00: configured for UDMA/33
+[    0.301438] scsi 0:0:0:0: Direct-Access     ATA      M5 IDE Disk      n/a  PQ: 0 ANSI: 5
+[    0.301611] sd 0:0:0:0: Attached scsi generic sg0 type 0
+[    0.301614] sd 0:0:0:0: [sda] 4194288 512-byte logical blocks: (2.14 GB/1.99 GiB)
+[    0.301649] sd 0:0:0:0: [sda] Write Protect is off
+[    0.301662] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[    0.301687] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    0.301899]  sda: sda1
+[    0.302087] sd 0:0:0:0: [sda] Attached SCSI disk
+[    0.421613] e1000 0000:00:00.0 eth0: (PCI:33MHz:32-bit) 00:90:00:00:00:01
+[    0.421629] e1000 0000:00:00.0 eth0: Intel(R) PRO/1000 Network Connection
+[    0.421662] e1000e: Intel(R) PRO/1000 Network Driver - 2.3.2-k
+[    0.421674] e1000e: Copyright(c) 1999 - 2014 Intel Corporation.
+[    0.421705] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.0.5-k
+[    0.421718] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    0.421842] usbcore: registered new interface driver usb-storage
+[    0.421937] mousedev: PS/2 mouse device common for all mice
+[    0.422213] usbcore: registered new interface driver usbhid
+[    0.422225] usbhid: USB HID core driver
+[    0.422282] TCP: cubic registered
+[    0.422291] NET: Registered protocol family 17
+ [    0.422835] EXT2-fs (sda1): warning: mounting unchecked fs, running e2fsck is recommended
+[    0.422869] VFS: Mounted root (ext2 filesystem) on device 8:1.
+[    0.422916] devtmpfs: mounted
+[    0.422984] Freeing unused kernel memory: 208K (ffffffc000692000 - ffffffc0006c6000)
+Mount failed for selinuxfs on /sys/fs/selinux:  No such file or directory
+[    0.454256] random: init urandom read with 11 bits of entropy available
+ Starting memcached: memcached.rcS is running
+opt_concurrency = 4warmup done
+opt_concurrency 4 opt_period 5
+thread 0 created
+thread 1 created
+thread 2 created
+thread 3 created
+thread 4 created
+thread 5 created
+thread 6 created
+thread 7 created
+thread 8 created
+thread 9 created
+thread 10 created
+thread 11 created
+thread 12 created
+thread 13 created
+thread 14 created
+thread 15 created
+thread 16 created
+thread 17 created
+thread 18 created
+thread 19 created
+thread creation done
+[    0.784137] pgd = ffffffc01d0dc000
+[    0.784146] [00000000] *pgd=000000009b47d003, *pmd=0000000000000000
+/tmp/script: line 30:  1077 Segmentation fault      ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+memcached.
+memcached.rcS is running
+opt_concurrency = 4warmup done
+opt_concurrency 4 opt_period 5
+thread 0 created
+thread 1 created
+thread 2 created
+thread 3 created
+thread 4 created
+thread 5 created
+thread 6 created
+thread 7 created
+thread 8 created
+thread 9 created
+thread 10 created
+thread 11 created
+thread 12 created
+thread 13 created
+thread 14 created
+thread 15 created
+thread 16 created
+thread 17 created
+thread 18 created
+thread 19 created
+thread creation done
+[    0.817625] pgd = ffffffc01d01d000
+[    0.817633] [00000000] *pgd=000000009bf5c003, *pmd=0000000000000000
+/tmp/script: line 30:  1143 Segmentation fault      ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+ memcached.rcS is running
+opt_concurrency = 4warmup done
+opt_concurrency 4 opt_period 5
+thread 0 created
+thread 1 created
+thread 2 created
+thread 3 created
+thread 4 created
+thread 5 created
+thread 6 created
+thread 7 created
+thread 8 created
+thread 9 created
+thread 10 created
+thread 11 created
+thread 12 created
+thread 13 created
+thread 14 created
+thread 15 created
+thread 16 created
+thread 17 created
+thread 18 created
+thread 19 created
+thread creation done
+[    0.849463] pgd = ffffffc01d084000
+[    0.849469] pgd = ffffffc01d084000
+[    0.849472] [00000000] *pgd=000000009bcf3003, *pmd=0000000000000000
+[    0.849515] [00000000] *pgd=000000009bcf3003, *pmd=0000000000000000
+/tmp/script: line 30:  1201 Segmentation fault      ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+ memcached.rcS is running
+opt_concurrency = 4warmup done
+opt_concurrency 4 opt_period 5
+thread 0 created
+thread 1 created
+thread 2 created
+thread 3 created
+thread 4 created
+thread 5 created
+thread 6 created
+thread 7 created
+thread 8 created
+thread 9 created
+thread 10 created
+thread 11 created
+thread 12 created
+thread 13 created
+thread 14 created
+thread 15 created
+thread 16 created
+thread 17 created
+thread 18 created
+thread 19 created
+thread creation done
+[    0.871478] pgd = ffffffc01bd66000
+[    0.871486] [00000000] *pgd=000000009d087003, *pmd=0000000000000000
+/tmp/script: line 30:  1257 Segmentation fault      ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+ memcached.rcS is running
+opt_concurrency = 4warmup done
+opt_concurrency 4 opt_period 5
+thread 0 created
+thread 1 created
+thread 2 created
+thread 3 created
+thread 4 created
+thread 5 created
+thread 6 created
+thread 7 created
+thread 8 created
+thread 9 created
+thread 10 created
+thread 11 created
+thread 12 created
+thread 13 created
+thread 14 created
+thread 15 created
+thread 16 created
+thread 17 created
+thread 18 created
+thread 19 created
+thread creation done
+[    0.903273] pgd = ffffffc01bf98000
+[    0.903284] [00000000] *pgd=000000009d2d7003, *pmd=0000000000000000
+/tmp/script: line 30:  1313 Segmentation fault      ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+ memcached.rcS is running
+opt_concurrency = 4warmup done
+opt_concurrency 4 opt_period 5
+thread 0 created
+thread 1 created
+thread 2 created
+thread 3 created
+thread 4 created
+thread 5 created
+thread 6 created
+thread 7 created
+thread 8 created
+thread 9 created
+thread 10 created
+thread 11 created
+thread 12 created
+thread 13 created
+thread 14 created
+thread 15 created
+thread 16 created
+thread 17 created
+thread 18 created
+thread 19 created
+thread creation done
+[    0.935014] pgd = ffffffc01bf14000
+[    0.935020] pgd = ffffffc01bf14000
+[    0.935021] [00000000] *pgd=000000009cf42003, *pmd=0000000000000000
+[    0.935065] [00000000] *pgd=000000009cf42003, *pmd=0000000000000000
+/tmp/script: line 30:  1369 Segmentation fault      ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+ memcached.rcS is running
+opt_concurrency = 4warmup done
+opt_concurrency 4 opt_period 5
+thread 0 created
+thread 1 created
+thread 2 created
+thread 3 created
+thread 4 created
+thread 5 created
+thread 6 created
+thread 7 created
+thread 8 created
+thread 9 created
+thread 10 created
+thread 11 created
+thread 12 created
+thread 13 created
+thread 14 created
+thread 15 created
+thread 16 created
+thread 17 created
+thread 18 created
+thread 19 created
+thread creation done
+[    0.957038] pgd = ffffffc01dd3b000
+[    0.957049] [00000000] *pgd=000000009bce2003, *pmd=0000000000000000
+/tmp/script: line 30:  1425 Segmentation fault      ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+ memcached.rcS is running
+opt_concurrency = 4warmup done
+opt_concurrency 4 opt_period 5
+thread 0 created
+thread 1 created
+thread 2 created
+thread 3 created
+thread 4 created
+thread 5 created
+thread 6 created
+thread 7 created
+thread 8 created
+thread 9 created
+thread 10 created
+thread 11 created
+thread 12 created
+thread 13 created
+thread 14 created
+thread 15 created
+thread 16 created
+thread 17 created
+thread 18 created
+thread 19 created
+thread creation done
+[    0.988870] pgd = ffffffc01bf1a000
+[    0.988878] [00000000] *pgd=000000009bd86003, *pmd=0000000000000000
+/tmp/script: line 30:  1481 Segmentation fault      ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+ memcached.rcS is running
+opt_concurrency = 4warmup done
+opt_concurrency 4 opt_period 5
+thread 0 created
+thread 1 created
+thread 2 created
+thread 3 created
+thread 4 created
+thread 5 created
+thread 6 created
+thread 7 created
+thread 8 created
+thread 9 created
+thread 10 created
+thread 11 created
+thread 12 created
+thread 13 created
+thread 14 created
+thread 15 created
+thread 16 created
+thread 17 created
+thread 18 created
+thread 19 created
+thread creation done
+/tmp/script: line 30:  1537 Segmentation fault      ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+ memcached.rcS is running
+opt_concurrency = 4warmup done
+opt_concurrency 4 opt_period 5
+thread 0 created
+thread 1 created
+thread 2 created
+thread 3 created
+thread 4 created
+thread 5 created
+thread 6 created
+thread 7 created
+thread 8 created
+thread 9 created
+thread 10 created
+thread 11 created
+thread 12 created
+thread 13 created
+thread 14 created
+thread 15 created
+thread 16 created
+thread 17 created
+thread 18 created
+thread 19 created
+thread creation done
+/tmp/script: line 30:  1593 Segmentation fault      ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0
+ memcached.rcS is running
+opt_concurrency = 4warmup done
+opt_concurrency 4 opt_period 5
+thread 0 created
+thread 1 created
+thread 2 created
+thread 3 created
+thread 4 created
+thread 5 created
+thread 6 created
+thread 7 created
+thread 8 created
+thread 9 created
+thread 10 created
+thread 11 created
+thread 12 created
+thread 13 created
+thread 14 created
+thread 15 created
+thread 16 created
+thread 17 created
+thread 18 created
+thread 19 created
+thread creation done
+/tmp/script: line 30:  1649 Segmentation fault      ./memslap --servers=10.0.0.2:11211 --execute-number=800 --think-time=$THINK --concurrency=$CONCUR --period=5 --client-num=0

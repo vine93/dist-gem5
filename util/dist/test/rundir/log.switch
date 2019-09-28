@@ -1,0 +1,33 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Sep 19 2019 08:26:20
+gem5 started Sep 19 2019 08:28:14
+gem5 executing on vine-OptiPlex-7010, pid 7114
+command line: /home/vine/gem5/util/dist/test/./../../../build/ARM/gem5.opt -d /home/vine/gem5/util/dist/test/rundir/m5out.switch --debug-flags=DistEthernet,Ethernet,WorkItems,TimingIdle,CacheFlush /home/vine/gem5/util/dist/test/./../../../configs/dist/sw.py --checkpoint-dir=/home/vine/gem5/util/dist/test/m5out.switch --is-switch --dist-size=2 --dist-server-port=2200
+
+info: Standard input is not a terminal, disabling listeners.
+Global frequency set at 1000000000000 ticks per second
+      0: system.portlink0: DistEtherLink::DistEtherLink() link delay:128000000 ticksPerByte:800
+      0: global: DistIface() ctor rank:0
+      0: global: TCPIface(listen): Can't bind port 2200
+info: tcp_iface listening on port 2201
+      0: global: First connection, waiting for link info
+      0: global: First connection, waiting for link info
+      0: system.portlink1: DistEtherLink::DistEtherLink() link delay:128000000 ticksPerByte:800
+      0: global: DistIface() ctor rank:0
+      0: system.portlink0: DistEtherLink::init() called
+info: Link okay  (iface:0 -> (node:0, iface:0))
+      0: system.portlink1: DistEtherLink::init() called
+info: Next dist synchronisation tick is changed to 1000000000000.
+info: Dist synchronisation interval is changed to 128000000.
+info: Link okay  (iface:1 -> (node:1, iface:0))
+**** REAL SIMULATION ****
+      0: system.portlink0: DistEtherLink::startup() called
+      0: global: DistIface::startup() started
+      0: global: DistIface::startup() done
+      0: system.portlink1: DistEtherLink::startup() called
+      0: global: DistIface::startup() started
+      0: global: DistIface::startup() done
+info: Dist sync scheduled at 1000000000000 and repeats 128000000
+info: Entering event queue @ 0.  Starting simulation...
