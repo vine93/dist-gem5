@@ -88,7 +88,7 @@ then
 
 else
 	cd /libmemcached-1.0.15/clients
-	 ./memaslap -s 10.0.0.2:11211 -t 5s -c 4 -S 1s -B
+	 ./memaslap -s 10.0.0.2:11211 -t 1s -c 4 -S 5s 
 
 
 
@@ -100,6 +100,7 @@ else
 #    ./memaslap -s 192.168.0.2:11211 
 #    echo "released, let's go ahead and execute the rest"
 fi
+/sbin/m5 exit 1
 
 #/sbin/m5 checkpoint 1
 #RUN SCRIPT:
