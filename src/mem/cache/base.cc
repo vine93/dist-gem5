@@ -482,7 +482,13 @@ void
 BaseCache::recvTimingReq(PacketPtr pkt)
 {
     // anything that is merely forwarded pays for the forward latency and
-    // the delay provided by the crossbar
+     if(name()!="testsys.l3" )
+//   &&( name()!="testsys.cpu0.icache.cpu_side"&&name()!="testsys.cpu1.icache.cpu_side"&&name()!="testsys.cpu2.icache.cpu_side"&&name()!="testsys.cpu3.icache.cpu_side"))
+   {  
+ //DPRINTF(CacheFlush, "cache in  %s\n",name());
+  checkcacheflush();
+   }
+     // the delay provided by the crossbar
     Tick forward_time = clockEdge(forwardLatency) + pkt->headerDelay;
 
     Cycles lat;
@@ -536,7 +542,7 @@ BaseCache::recvTimingReq(PacketPtr pkt)
     }
     if(curTick()>sleep)
     {
-	    DPRINTF(CacheFlush,"No of hits and miss = %d  %d\n",hitnumber,missnumber);
+	    //DPRINTF(CacheFlush,"No of hits and miss = %d  %d\n",hitnumber,missnumber);
 	    hitnumber=0;
 	    missnumber=0;
 	    sleep=sleep+c6delay;
@@ -1683,7 +1689,7 @@ BaseCache::invalidateBlock(CacheBlk *blk)
     // If handling a block present in the Tags, let it do its invalidation
     // process, which will update stats and invalidate the block itself
     if (blk != tempBlock) {
-        tags->invalidate(blk);
+	   tags->invalidate(blk);
     } else {
         tempBlock->invalidate();
     }
@@ -1822,6 +1828,7 @@ BaseCache::writebackVisitor(CacheBlk &blk)
     if (blk.isDirty()) {
         assert(blk.isValid());
 
+//        DPRINTF(CacheFlush," Cache block dirty\n");
         RequestPtr request = std::make_shared<Request>(
             regenerateBlkAddr(&blk), blkSize, 0, Request::funcMasterId);
 
@@ -1829,6 +1836,7 @@ BaseCache::writebackVisitor(CacheBlk &blk)
         if (blk.isSecure()) {
             request->setFlags(Request::SECURE);
         }
+  //      DPRINTF(CacheFlush," Cache block not dirty\n");
 
         Packet packet(request, MemCmd::WriteReq);
         packet.dataStatic(blk.data);
@@ -1843,13 +1851,17 @@ void
 BaseCache::invalidateVisitor(CacheBlk &blk)
 {
     if (blk.isDirty())
-        warn_once("Invalidating dirty cache lines. " \
-                  "Expect things to break.\n");
+    { 
+	    warn_once("Invalidating dirty cache lines. Expect things to break.\n");
+	 //writebackBlk(&blk);
+	//invalidateBlock(&blk);
 
+    }
     if (blk.isValid()) {
         assert(!blk.isDirty());
-        invalidateBlock(&blk);
-    }
+//        DPRINTF(CacheFlush,"2. Cache block invalidated\n");
+	invalidateBlock(&blk);
+   }
 }
 
 Tick
@@ -2641,12 +2653,7 @@ BaseCache::CpuSidePort::recvTimingReq(PacketPtr pkt)
 {
     
    assert(pkt->isRequest());
-   if(name()!="testsys.l3.cpu_side" )
-//   &&( name()!="testsys.cpu0.icache.cpu_side"&&name()!="testsys.cpu1.icache.cpu_side"&&name()!="testsys.cpu2.icache.cpu_side"&&name()!="testsys.cpu3.icache.cpu_side"))
-   {  
- //DPRINTF(CacheFlush, "cache in  %s\n",name());
-   cache->checkcacheflush();
-   } 
+   
    if (cache->system->bypassCaches()) {
         // Just forward the packet if caches are disabled.
         // @todo This should really enqueue the packet rather
