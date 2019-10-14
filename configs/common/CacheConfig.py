@@ -94,21 +94,12 @@ def config_cache(options, system):
 #      system.l4.cpu_side = system.tol4bus.master
 #        system.l4.mem_side = system.membus.slave
 
-    if options.l3cache:
         # Provide a clock for the L2 and the L1-to-L2 bus here as they
         # are not connected using addTwoLevelCacheHierarchy. Use the
         # same clock as the CPUs.
-        system.l3 = l3_cache_class(clk_domain=system.cpu_clk_domain,
-                                   size=options.l3_size,
-                                   assoc=options.l3_assoc)
-						
-        system.tol3bus = L2XBar(clk_domain = system.cpu_clk_domain)
-        system.l3.cpu_side = system.tol3bus.master
        # if options.l4cache:
        #     system.l3.mem_side = system.tol4bus.slave
        # else:
-        system.l3.mem_side = system.membus.slave
-
     # If elastic trace generation is enabled, make sure the memory system is
     # minimal so that compute delays do not include memory access latencies.
     # Configure the compulsory L1 caches for the O3CPU, do not configure
@@ -130,7 +121,13 @@ def config_cache(options, system):
             system.l2.mem_side = system.tol3bus.slave
         else:
             system.l2.mem_side = system.membus.slave
-
+    if options.l3cache:
+        system.l3 = l3_cache_class(clk_domain=system.cpu_clk_domain,
+                                    size=options.l3_size,
+                                    assoc=options.l3_assoc)
+        system.tol3bus = L3XBar(clk_domain = system.cpu_clk_domain)
+        system.l3.cpu_side = system.tol3bus.master
+        system.l3.mem_side = system.membus.slave
     if options.memchecker:
         system.memchecker = MemChecker()
 
