@@ -130,7 +130,7 @@ class SnoopFilter(SimObject):
     system = Param.System(Parent.any, "System that the crossbar belongs to.")
 
     # Sanity check on max capacity to track, adjust if needed.
-    max_capacity = Param.MemorySize('8MB', "Maximum capacity of snoop filter")
+    max_capacity = Param.MemorySize('64MB', "Maximum capacity of snoop filter")
 
 # We use a coherent crossbar to connect multiple masters to the L2
 # caches. Normally this crossbar would be part of the cache itself.
@@ -158,6 +158,15 @@ class L2XBar(CoherentXBar):
 # One of the key coherent crossbar instances is the system
 # interconnect, tying together the CPU clusters, GPUs, and any I/O
 # coherent masters, and DRAM controllers.
+class L3XBar(CoherentXBar):
+    width = 32
+    
+    frontend_latency = 1
+    forward_latency = 0
+    response_latency = 1
+    snoop_response_latency = 1
+    snoop_filter = SnoopFilter(lookup_latency = 0)
+    point_of_unification = True
 class SystemXBar(CoherentXBar):
     # 128-bit crossbar by default
     width = 16
