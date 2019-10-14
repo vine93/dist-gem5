@@ -574,7 +574,7 @@ BaseCPU::suspendContext(ThreadID thread_num)
     if (powerGatingOnIdle) {
         // Schedule power gating event when clock gated for pwrGatingLatency
         // cycles
-       //   DPRINTF(TimingIdle,"CPU in power gate state  %d\n",thread_num);
+          DPRINTF(TimingIdle,"CPU in power gate state  %d\n",thread_num);
 //	 schedule(enterPwrGatingEvent, clockEdge(pwrGatingLatency));
     schedulePowerGatingEvent();
     }
@@ -597,7 +597,7 @@ BaseCPU::enterPwrGating(void)
 
 ClockedObject::pwrState(Enums::PwrState::OFF);
 
-   // flushTLBs();
+  // flushTLBs();
 //DPRINTF(TimingIdle,"TLB Flushed \n");
 //if(enterPwrGatingEvent.scheduled())
 //{	deschedule(enterPwrGatingEvent);
@@ -608,28 +608,28 @@ if(name()=="testsys.cpu0")
 {
 	ClockedObject::l2_flushed_core0=true;
  	ClockedObject::dcache_flushed_core0=true;
- 	ClockedObject::icache_flushed_core0=true;
+ //	ClockedObject::icache_flushed_core0=true;
 //DPRINTF(TimingIdle,"Cache set to  Flushed in %d %d %d \n",ClockedObject::l2_flushed_core0,ClockedObject::dcache_flushed_core0,ClockedObject::icache_flushed_core0);
 }
 else if(name()=="testsys.cpu1")
 {
 	ClockedObject::l2_flushed_core1=true;
  	ClockedObject::dcache_flushed_core1=true;
- 	ClockedObject::icache_flushed_core1=true;
+ //	ClockedObject::icache_flushed_core1=true;
 //DPRINTF(TimingIdle,"Cache set to  Flushed in %d %d %d \n",ClockedObject::l2_flushed_core1,ClockedObject::dcache_flushed_core1,ClockedObject::icache_flushed_core1);
 }
 else if(name()=="testsys.cpu2")
 {
 	ClockedObject::l2_flushed_core2=true;
  	ClockedObject::dcache_flushed_core2=true;
- 	ClockedObject::icache_flushed_core2=true;
+ //	ClockedObject::icache_flushed_core2=true;
 //DPRINTF(TimingIdle,"Cache set to  Flushed in %d %d %d \n",ClockedObject::l2_flushed_core2,ClockedObject::dcache_flushed_core2,ClockedObject::icache_flushed_core2);
 }
 else 
 {
 	ClockedObject::l2_flushed_core3=true;
  	ClockedObject::dcache_flushed_core3=true;
- 	ClockedObject::icache_flushed_core3=true;
+ //	ClockedObject::icache_flushed_core3=true;
 //DPRINTF(TimingIdle,"Cache set to  Flushed in %d %d %d \n",ClockedObject::l2_flushed_core3,ClockedObject::dcache_flushed_core3,ClockedObject::icache_flushed_core3);
 }
 
@@ -652,7 +652,7 @@ void BaseCPU::enterPwrGatingc6(void)
 //return ;
 //}
 if(!enterPwrGatingc6Event.scheduled())
-	flushTLBs();
+	//flushTLBs();
 DPRINTF(TimingIdle,"TLB Flushed \n");
 }
 void
